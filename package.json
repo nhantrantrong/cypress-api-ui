@@ -1,0 +1,35 @@
+{
+  "name": "cypress-api-ui",
+  "version": "1.0.0",
+  "description": "This is sample cypress api and ui repository",
+  "main": "index.js",
+  "scripts": {
+    "reinstall": "rm -rf node_module && rm -rf package-lock.json && npm install",
+    "allure:clean": "rm -rf report/allure-report && rm -rf report/allure-results",
+    "allure:generate": "allure generate report/allure-results --clean -o report/allure-report",
+    "allure:open": "allure open report/allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open",
+    "cy:open": "cypress open",
+    "cy:test": "npm run allure:clean && cypress run",
+    "cy:test-api": "npm run cy:test -- --spec cypress/e2e/api/*.spec.cy.js",
+    "cy:test-ui": "npm run cy:test -- --spec cypress/e2e/ui/*.spec.cy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhantrantrong/cypress-api-ui.git"
+  },
+  "author": "nhantrantrong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhantrantrong/cypress-api-ui/issues"
+  },
+  "homepage": "https://github.com/nhantrantrong/cypress-api-ui#readme",
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.33.1",
+    "cypress": "^10.10.0"
+  },
+  "devDependencies": {
+    "dateformat": "^5.0.3",
+    "jsonschema": "^1.4.1"
+  }
+}
