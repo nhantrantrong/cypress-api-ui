@@ -4,6 +4,14 @@ This is sample cypress api and ui repository
 # Automation FW Architecture
 ![image](https://user-images.githubusercontent.com/64664332/197671564-90c80894-296c-48c8-9ac6-f3bf8a46f7b0.png)
 
+- **support:** Location of `core` and business common methods
+     + core: Definition of classes to store wrapped up `cy` build in method which relating much more on the framework and elements handling
+     + project: Definition of classes to store common methods which describe a business flow basing on domain knowledge of a specified project
+- **configuration:** Store configuration for cypress and test run. We can define specPattern, timeout, environment variables, etc. in **_cypress.config.js_** file
+- **fixtures:** Resources location. Test Data files, JSON Schemas, upload images, downloads, etc. would be store in this folder
+- **e2e:** Test spec files location. The spec files are separated into **api** and **ui** folder. The `TestController.js` class would be used to initialize the class instances as well as storing `setUp` method defintion
+- **report:** Location for the generated xml and html report
+
 # Structure in VSCode Editor
 ![image](https://user-images.githubusercontent.com/64664332/197672021-0f49f040-b77d-4ab9-934e-f4f0067b5d6a.png)
 
