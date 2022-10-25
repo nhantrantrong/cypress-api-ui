@@ -58,6 +58,16 @@ This is sample cypress api and ui repository
 <img width="718" alt="image" src="https://user-images.githubusercontent.com/64664332/197677768-f35c4782-6a50-4e13-abbe-40c62bde363d.png">
 
 ### Execute Test on Github Action Workflow:
+- Go to [actions](https://github.com/nhantrantrong/cypress-api-ui/actions) page
+- Select the Manually Run api-test in parallely
+- Click on **Run workflow** button, then click **Run workflow**
+![image](https://user-images.githubusercontent.com/64664332/197699714-58189618-3cc2-469b-9b69-5b7788aafa2d.png)
+
+- The job will be triggered to execute the tests parallely
+![image](https://user-images.githubusercontent.com/64664332/197699026-c61649b6-e179-46b0-8651-b354aa348487.png)
+
+- After the execution is complete, the summary result will be displayed as below. But we can also use gbpage, netlify or publsihed site of aws to publish and sharing the html allure report.
+![image](https://user-images.githubusercontent.com/64664332/197699125-26ee6b9e-fdca-48d8-ad81-416f9f8e0d7b.png)
 
 
 ### Report:
