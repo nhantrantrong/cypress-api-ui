@@ -1,0 +1,70 @@
+# This is a basic workflow that is manually triggered
+
+name: Manually Run api-test in parallely
+
+on:
+  workflow_dispatch:
+
+env:
+  WORKING_PATH: /home/runner/work/cypress-api-ui/cypress-api-ui
+  TEST-SUITE-1: cypress/e2e/api/create-user.spec.cy.js
+  TEST-SUITE-2: cypress/e2e/api/list-users.spec.cy.js
+  TEST-SUITE-3: cypress/e2e/api/single-user.spec.cy.js
+  
+jobs:
+  cypress-run-api-test-suite-1:
+    runs-on: ubuntu-latest
+    
+    name: Run api test suite 1
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@v3
+
+      - run: cd ${{ env.WORKING_PATH }} && npm run reinstall
+
+      - uses: cypress-io/github-action@v4
+        id: run-test-suite-1
+        with:
+          spec: ${{ env.TEST-SUITE-1 }}
+          install: false
+          
+  cypress-run-api-test-suite-2:
+    runs-on: ubuntu-latest
+
+    name: Run api test suite 2
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@v3
+
+      - run: cd ${{ env.WORKING_PATH }} && npm run reinstall
+
+      - uses: cypress-io/github-action@v4
+        id: run-tests
+        with:
+          spec: ${{ env.TEST-SUITE-2 }}
+          install: false
+          
+  cypress-run-api-test-suite-3:
+    runs-on: ubuntu-latest
+
+    name: Run api test suite 3
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/checkout@v3
+
+      - run: cd ${{ env.WORKING_PATH }} && npm run reinstall
+
+      - uses: cypress-io/github-action@v4
+        id: run-tests
+        with:
+          spec: ${{ env.TEST-SUITE-3 }}
+          install: false
